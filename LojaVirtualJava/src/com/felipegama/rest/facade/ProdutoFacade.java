@@ -22,7 +22,7 @@ public class ProdutoFacade {
 	
 	static List<Produto> listaProduto = new ArrayList<Produto>();
 	
-//	ProdutoDao pDao = new ProdutoDao();
+    //ProdutoDao pDao = new ProdutoDao();
 	//ArrayList<Produto> lista = pDao.listar();
 	static {
 		Categoria cat1 = new Categoria();
@@ -31,6 +31,8 @@ public class ProdutoFacade {
 		
 		listaProduto.add(new Produto(10L,"produto felipe 1", 260.00D,"img/prod1.jpg",1L,cat1));
 		listaProduto.add(new Produto(11L,"produto felipe 2", 360.00D,"img/prod2.jpg",1L,cat1));
+		//listaProduto.add(new Produto(12L,"produto felipe 3", 460.00D,"img/prod2.jpg",1L,cat1));
+		//listaProduto.add(new Produto(13L,"produto felipe 4", 560.00D,"img/prod2.jpg",1L,cat1));
 	}
 	
 	public void listaProdutos(){
@@ -43,16 +45,11 @@ public class ProdutoFacade {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@GET
 	public List<Produto> getProdutos(){
 		
 		//listaProduto = listaProdutos();
 		return listaProduto;
-	}
-	
-	@POST
-	public void finalizarCompra(){
-		
 	}
 }

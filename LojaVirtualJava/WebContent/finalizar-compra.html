@@ -35,6 +35,7 @@
 				<div class="row">
 					<div class="col col-sm-2">	
 					<h3>Detalhes da cobranca</h3>
+					<form name="checkout" method="POST" action="http://localhost:8080/LojaVirtualJava/rest/adicionaPedido">
 						<div class="form checkout">
 							<p class="form-row">
 								<label>Nome</label>
@@ -59,6 +60,7 @@
 				<div class="row">
 					<div class="col col-sm-1" >
 					<h3>Seu pedido</h3>
+					
 						<table class="tabela box">
 				            <thead>
 				              <tr>				                
@@ -69,9 +71,11 @@
 				            </thead>
 				            <tbody>
 				              <tr ng-repeat="produtoCart in produtosCart">				                
-				                <td>{{produtoCart.nome}}</td>
+				                <td>{{produtoCart.descricao}}</td>
 				                <td>{{produtoCart.quantidade}}</td>
-				                <td><span>R$ {{totalProduto(produtoCart)}}</span></td>			
+				                <td><span>R$ {{totalProduto(produtoCart)}}</span></td>	
+				                <input type="hidden" name="idProduto" ng-bind="{{produtoCart.idProduto}}" value="{{produtoCart.idProduto}}">
+				                <input type="hidden" name="quantidade" ng-bind="{{produtoCart.quantidade}}" value="{{produtoCart.quantidade}}">		
 				              </tr>
 
 				               <tr class="row-color">				                
@@ -109,13 +113,13 @@
 						</p>
 						<h5 class="row-color">Pagamento realizado com pagseguro (exemplo)</h5>
 					</div>
-					<div class="pgto bottom">
-						<a href="#"><button class="btn btnSuccess">Realizar compra</button></a>
+					<div class="pgto bottom">						
+						<input type="submit" value="Realizar compra" class="btn btnSuccess" ng-click="enviaPedido()">
 					</div>
 				</div>
 			</div>	
 					
-
+			</form>
 									
 
 					

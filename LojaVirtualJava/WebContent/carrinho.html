@@ -50,8 +50,8 @@
 				            <tbody>
 				              <tr ng-repeat="produtoCart in produtosCart">
 				                <td><a href="" ng-click="removerProduto()" class="link-delete">X</a></td>
-				                <td><img src="{{produtoCart.img}}"></td>
-				                <td>{{produtoCart.nome}}</td>
+				                <td><img src="{{produtoCart.foto}}"></td>
+				                <td>{{produtoCart.descricao}}</td>
 				                <td><span>R$ {{produtoCart.preco}}</span></td>
 				                <td><span>{{produtoCart.quantidade}}</span></td>				                
 				                <td>R$ {{totalProduto(produtoCart)}}</td>

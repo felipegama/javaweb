@@ -1,17 +1,47 @@
 var produtosModulo = angular.module("produtosModulo",['ngStorage']);
 
-produtosModulo.controller("produtosController",function($scope, $http, $localStorage){
-	
+produtosModulo.controller("produtosController",function($scope, $http,$localStorage){
+
+$scope.produtos = [];
 	urlProdutos = 'http://localhost:8080/LojaVirtualJava/rest/produtos';	
 	$scope.listaProdutos = function(){
-		$http.get(urlProdutos).success(function(produto){
+		$http.get(urlProdutos)
+			  .then(function (response) {
+
+			    var data = response.data;
+			    var status = response.status;
+			    var statusText = response.statusText;
+			    var headers = response.headers;
+			    var config = response.config;
+
+			    $scope.produtos = data;
+			    console.log(data);
+			});
+	};
+
+	$scope.enviaPedido = function(){
+					  $http({
+			            method : 'POST',
+			            url : 'http://localhost:8080/LojaVirtualJava/rest/adicionaPedido',
+			            data : $scope.produtosCart,
+			            headers: {
+			                'Content-Type': 'application/json'
+			            }
+			        }).success(function(data) {
+			            console.log("sucesso"+data);
+			        }).error(function(data) {
+			            console.log("error"+data);
+			        });
+				};
+			 
+		/*$http.get(urlProdutos).success(function(produto){
 			$scope.produtos = produto;
 		}).error(function(erro){
 			alert("Erro ao listar produtos via REST => " + erro);
-		});
-	}
+		});*/
 	//executar o metodo listar
 	$scope.listaProdutos();
+
 
 	$scope.selecionaProduto = function(produtoSelecionado){
 		$scope.produto = produtoSelecionado;
@@ -86,22 +116,5 @@ produtosModulo.controller("produtosController",function($scope, $http, $localSto
 	};
 
 	
-    /*$scope("fileread", [function () {
-    return {
-        scope: {
-            fileread: "="
-        },
-        link: function (scope, element, attributes) {
-            element.bind("change", function (changeEvent) {
-                var reader = new FileReader();
-                reader.onload = function (loadEvent) {
-                    scope.$apply(function () {
-                        scope.fileread = loadEvent.target.result;
-                    });
-                }
-                reader.readAsDataURL(changeEvent.target.files[0]);
-            });
-        }
-    }
-}]);*/
+    
 })
