@@ -23,7 +23,7 @@ import com.felipegama.dao.PedidoDao;
 import com.felipegama.domain.Pedido;
 import com.felipegama.domain.Produto;
 
-@WebServlet @Path("/adicionaPedido")
+@Path("/adicionaPedido")
 public class AdicionaPedido extends HttpServlet  {
 	
 	@GET
