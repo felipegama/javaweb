@@ -1,0 +1,37 @@
+<div class="container content-dark">				
+						<ul class="nav nav-list">
+							<li class="list-item active"><a href="index.html">HOME</a></li>	
+							<li class="list-item "><a href="produto.html" title="Adicionar produto">Add produto</a></li>		
+						</ul>
+
+						<a href="carrinho.html">
+							<div class="cart">
+								<span class="cart-text">Carrinho</span>
+								<span class="cart-qtd">( {{qtdTotal()}} )</span>
+								<span class="cart-total">R$ {{subtotal()}}</span>
+								<div class="carrinho">
+									<div class="prod-carrinho" ng-repeat="produtoCart in produtosCart ">
+										<div class="esq">
+											<h6 > {{produtoCart.nome}}</h6>
+											<h5><span>{{produtoCart.quantidade}}</span><b> x </b> {{produtoCart.preco}}</h5>
+										</div>
+										<div class="dir">
+											<a href=""><img src="{{produtoCart.img}}"/></a>
+											<a href="" ng-click="removerProduto()">X</a>
+										</div>
+									</div>
+									
+									<div class="bottom-carrinho">
+										<div class="bottom-text">
+										<strong>Subtotal: </strong><span>{{subtotal()}} </span>
+										</div>
+										<div class="bottom-botoes">
+											<a href="carrinho.html"><button class="btn btnDetalhe">Carrinho</button></a>
+											<a href="finalizar-compra.html"><button class="btn btnSuccess">Finalizar compra</button></a>
+										</div>
+									</div>
+								</div>	
+							</div>							
+						</a>
+						
+				</div>

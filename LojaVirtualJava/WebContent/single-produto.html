@@ -1,0 +1,81 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" ng-app="produtosModulo">
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	  <title>????? - teste SOVIS | E-COMMERCE JAVA</title>
+	  <meta name="description" content="">
+	  <meta name="author" content="">  
+
+	  <script src="js/angular.min.js"> </script>
+	  <script src="js/ngStorage.min.js"> </script>
+	  <script src="controller/produtosController.js"> </script>
+	  <script src="controller/cartController.js"> </script>
+	  <script src="js/jquery.min.js"> </script>
+	  <link href="css/style.css" rel="stylesheet">
+	</head>
+	<!-- ############ corpo ############ -->
+	<body ng-controller="produtosController">
+		<!-- ############ header ############ -->
+		<header>
+			<nav ng-include src="'template/menu.html'"></nav>	
+				<div class="slideTop">
+					<div class="container single-page">	
+						<h1>produto xxxx</h1>
+						<p>categoria</p>
+						
+					</div>
+				</div>
+			
+			
+
+		</header>
+		<!-- ############ content ############ -->
+		<main>
+			<div class="container">				
+				
+				<section class="row">
+
+					<div class="col col-sm-2" >
+						<a href=""><img src="img/prod1.jpg"></a>					
+						
+					</div>
+
+					<div class="col col-sm-2 last" >				
+						
+						<div class="product-top">
+							<h2 class="">{{produtosDestaque.nome}}</h2>
+							<h5 class="">R$ {{produtosDestaque.preco}}</h5>
+							<h6 class="">{{produtosDestaque.categoria}}</h6>
+						</div>
+						<div class="product-meio">
+							<form>
+								<div class="qtd-produto">
+									<input type="number" name="qtd-produto" step="1">
+								</div>
+								<a href=""><button class="btn btnSuccess">comprar</button></a>
+							</form>
+						</div>
+						<div class="product-footer">
+							
+						</div>
+					</div>					
+
+					
+
+					
+				</section>
+
+				
+			</div>
+		</main>
+		<!-- ############ footer ############ -->
+		<footer>
+			<div class="container content-dark">				
+				<p>2017 - Felipe gama</p>
+			</div>
+			
+		</footer>
+		
+
+	</body>
+</html>

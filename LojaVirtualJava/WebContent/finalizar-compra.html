@@ -1,0 +1,139 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" ng-app="produtosModulo">
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	  <title>Finalizar compra - teste SOVIS | E-COMMERCE JAVA</title>
+	  <meta name="description" content="">
+	  <meta name="author" content="">  
+
+	  <script src="js/angular.min.js"> </script>
+	  <script src="js/ngStorage.min.js"> </script>
+	  <script src="controller/produtosController.js"> </script>
+	  <script src="controller/cartController.js"> </script>
+	  <script src="js/jquery.min.js"> </script>
+	  <link href="css/style.css" rel="stylesheet">
+	</head>
+	<!-- ############ corpo ############ -->
+	<body ng-controller="produtosController">
+		<!-- ############ header ############ -->
+		<header>
+			<nav ng-include src="'template/menu.html'"></nav>		
+				<div class="slideTop">
+					<div class="container single-page">	
+						<h1>Finalizar compra</h1>
+						<p></p>
+						
+					</div>
+				</div>
+			</div>
+			
+
+		</header>
+		<!-- ############ content ############ -->
+		<main>
+			<div class="container">	
+				<div class="row">
+					<div class="col col-sm-2">	
+					<h3>Detalhes da cobranca</h3>
+						<div class="form checkout">
+							<p class="form-row">
+								<label>Nome</label>
+								<input type="text" name="nome">
+							</p>
+							<p class="form-row row-2">
+								<label>Email</label>
+								<input type="text" name="email">
+							</p>
+							<p class="form-row row-2 last">
+								<label>Telefone</label>
+								<input type="text" name="telefone">
+							</p>
+							<p class="form-row wide">
+								<label>Endereco</label>
+								<input type="text" name="endereco">
+							</p>
+						</div>
+					</div>
+				</div>			
+				
+				<div class="row">
+					<div class="col col-sm-1" >
+					<h3>Seu pedido</h3>
+						<table class="tabela box">
+				            <thead>
+				              <tr>				                
+				                <th>Produto</th>				               
+				                <th>Qtd</th>
+				                <th>Total</th>
+				              </tr>
+				            </thead>
+				            <tbody>
+				              <tr ng-repeat="produtoCart in produtosCart">				                
+				                <td>{{produtoCart.nome}}</td>
+				                <td>{{produtoCart.quantidade}}</td>
+				                <td><span>R$ {{totalProduto(produtoCart)}}</span></td>			
+				              </tr>
+
+				               <tr class="row-color">				                
+				                <td>Subtotal</td>
+				                <td></td>
+				                <td><span>R$ {{subtotal()}}</span></td>			
+				              </tr>
+
+				               <tr>				                
+				                <td>Entrega</td>
+				                <td></td>
+				                <td><span>frete gratis</span></td>			
+				              </tr>
+
+				               <tr>				                
+				                <td>Total</td>
+				                <td></td>
+				                <td><span>R$ {{subtotal()}}</span></td>			
+				              </tr>
+
+				             
+				            </tbody>
+				          </table>		
+						
+					</div>
+			</div>	
+
+								
+			<div class="row">
+				<div class="col col-sm-1" >		
+					<div class="pgto">
+						<p>
+							<span>Pagamento</span>
+							<img src="img/pagseguro.png">
+						</p>
+						<h5 class="row-color">Pagamento realizado com pagseguro (exemplo)</h5>
+					</div>
+					<div class="pgto bottom">
+						<a href="#"><button class="btn btnSuccess">Realizar compra</button></a>
+					</div>
+				</div>
+			</div>	
+					
+
+									
+
+					
+
+					
+				</section>
+
+				
+			</div>
+		</main>
+		<!-- ############ footer ############ -->
+		<footer>
+			<div class="container content-dark">				
+				<p>2017 - Felipe gama</p>
+			</div>
+			
+		</footer>
+		
+
+	</body>
+</html>

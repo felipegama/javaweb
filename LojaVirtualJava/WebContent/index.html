@@ -1,0 +1,90 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" ng-app="produtosModulo">
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	  <title>Home - teste SOVIS | E-COMMERCE JAVA</title>
+	  <meta name="description" content="">
+	  <meta name="author" content="">  
+
+	  <script src="js/angular.min.js"> </script>
+	  <script src="js/ngStorage.min.js"> </script>
+	  <script src="controller/produtosController.js"> </script>	
+	  <script src="js/jquery.min.js"> </script>
+	  <link href="css/style.css" rel="stylesheet">
+	</head>
+	<!-- ############ corpo ############ -->
+	<body ng-controller="produtosController">
+		<!-- ############ header ############ -->
+		<header>
+			<nav ng-include src="'template/menu.html'"></nav>	
+				<div class="slideTop">
+					<div class="container">	
+						<h1>Bem vindo</h1>
+						<p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+						<button class="btn btnDetalhe">ver mais</button>
+					</div>
+				</div>
+			
+			
+
+		</header>
+		<!-- ############ content ############ -->
+		<main>
+			<div class="container">				
+				
+				<section class="row">
+					<section class="page-title">
+						<h2>Produtos em destaque</h2>
+					</section>
+
+					<div class="col col-sm-4" ng-repeat="produtosDestaque in produtos">
+						<div class="product-top">
+							<a href="single-produto.html"><img src="{{produtosDestaque.foto}}"></a>
+						</div>
+						<div class="product-meio">
+							<h3 class="name">{{produtosDestaque.descricao}}</h3>
+							<h5 class="price">R$ {{produtosDestaque.preco}}</h5>
+						</div>
+						<div class="product-footer">
+							<a href="single-produto.html"><button class="btn btnDetalhe">Ver detalhes</button></a>
+							<a href="" class="addCart" ng-click="adicionarProduto(produtosDestaque)">add ao carrinho</a>
+						</div>
+					</div>
+
+					
+				</section>
+
+				<section class="row">
+					<section class="page-title">
+						<h2>Produtos em promoção</h2>
+					</section>
+				
+					<div class="col col-sm-4">
+						<div class="product-top">
+							<a href=""><img src="img/prod3.jpg"></a>
+						</div>
+						<div class="product-meio">
+							<h3 class="name">produto 2 XPTO descricao descricao descricao descricao</h3>
+							<h5 class="price">R$ 150,00</h5>
+						</div>
+						<div class="product-footer">
+							<a href=""><button class="btn btnDetalhe">Ver detalhes</button></a>
+							<a href="" class="addCart">add ao carrinho</a>
+						</div>
+					</div>
+
+					
+				</section>
+			</div>
+		</main>
+		<!-- ############ footer ############ -->
+		<footer>
+			<div class="container content-dark">				
+				<p>2017 - Felipe gama</p>
+			</div>
+			
+		</footer>
+		
+
+	</body>
+</html>

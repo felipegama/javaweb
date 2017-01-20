@@ -1,0 +1,102 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" ng-app="produtosModulo">
+	<head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	  <title> Adicionar produto - teste SOVIS | E-COMMERCE JAVA</title>
+	  <meta name="description" content="">
+	  <meta name="author" content="">  
+
+	  <script src="js/angular.min.js"> </script>
+	  <script src="js/ngStorage.min.js"> </script>
+	  <script src="controller/produtosController.js"> </script>
+	  <script src="controller/cartController.js"> </script>
+	  <script src="js/jquery.min.js"> </script>
+	  <link href="css/style.css" rel="stylesheet">
+	</head>
+	<!-- ############ corpo ############ -->
+	<body ng-controller="produtosController">
+		<!-- ############ header ############ -->
+		<header>
+			<nav ng-include src="'template/menu.html'"></nav>		
+				<div class="slideTop">
+					<div class="container single-page">	
+						<h1>Produtos</h1>
+						<p>Adicionar produtos</p>
+						
+					</div>
+				</div>
+			</div>
+			
+
+		</header>
+		<!-- ############ content ############ -->
+		<main>
+			<div class="container">				
+				
+				<section class="row">
+					<h3>Cadastro de produto</h3>
+						<div class="form col col-sm-2">
+							<p class="form-row">
+								<label>Nome produto</label>
+								<input type="text" name="nome" placeholder="Nome" ng-model="produto.nome">
+							</p>
+							<p class="form-row row-2">
+								<label>Categoria</label>
+								<select ng-model="produto.categoria.nome" ng-options="categoria.nome for categoria in categorias">
+									<option value="">Selecinar categoria</option>
+								</select>
+							</p>
+							<p class="form-row row-2 last">
+								<label>Preco</label>
+								<input type="text" name="preco" placeholder="Ex. 150,00" ng-model="produto.preco">
+							</p>
+							<p class="form-row wide">
+								<label>Foto</label>
+								<input type="file" name="foto" fileread="produto.img">
+							</p>
+							<p class="form-row wide">
+								 <button type="submit" class="btn btnDetalhe" ng-click="salvarProduto()">Salvar</button>
+								 <button type="submit" class="btn btnDeletar">Excluir</button>
+							</p>
+						</div>
+					
+				</section>
+
+				<section class="row">
+					<h2>Lista de produtos</h2>
+						<div class="col col-sm-1">
+							<section class="page-title">
+								<h3>Categoria: <h4></h4></h3>
+							</section>
+
+							<div class="col col-sm-4" ng-repeat="produtosLista in produtos">
+								<div class="product-top">
+									<a href=""><img src="{{produtosLista.img}}"></a>
+								</div>
+								<div class="product-meio">
+									<h3 class="name">{{produtosLista.nome}}</h3>
+									<h5 class="price">R$ {{produtosLista.preco}}</h5>
+								</div>
+								<div class="product-footer">
+									<a href=""><button class="btn btnDetalhe" ng-click="selecionaProduto(produtosLista)">Editar</button></a>
+									
+								</div>
+							</div>
+						</div>
+					
+				</section>
+
+				
+			</div>
+		</main>
+		<!-- ############ footer ############ -->
+		<footer>
+			<div class="container content-dark">				
+				<p>2017 - Felipe gama</p>
+			</div>
+			
+		</footer>
+		
+
+	</body>
+</html>
